@@ -1,0 +1,249 @@
+.programs-section {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 3.5rem 0 4.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Decorations */
+.bg-circle-1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.bg-circle-2 {
+  position: absolute;
+  top: 10%;
+  right: -5%;
+  width: 300px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.programs-container {
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.programs-header {
+  max-width: 900px;
+  margin-bottom: 2.5rem;
+}
+
+.section-label-light {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--primary-yellow);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.section-label-light::before {
+  content: '';
+  width: 40px;
+  height: 2px;
+  background-color: var(--primary-yellow);
+}
+
+.programs-heading {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  font-family: var(--font-heading);
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.programs-heading .highlight {
+  color: var(--primary-yellow);
+}
+
+.programs-desc {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* Base Card Styles */
+.program-card {
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.program-card:hover {
+  transform: translateY(-10px);
+}
+
+/* Card 1: White */
+.program-card.white {
+  background-color: var(--white);
+  color: var(--text-dark);
+}
+
+.program-card.white:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.pill-light {
+  display: inline-block;
+  background-color: #e8f0fe;
+  color: var(--primary-blue);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+
+.program-title-dark {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--primary-blue);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.program-subtitle {
+  color: var(--text-gray);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.program-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.feature-item::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary-yellow);
+  transform: rotate(45deg);
+  margin-top: 0.3rem;
+  flex-shrink: 0;
+}
+
+/* Card 2: Yellow */
+.program-card.yellow {
+  background-color: var(--primary-yellow);
+  color: var(--primary-blue);
+}
+
+.program-card.yellow:hover {
+  box-shadow: 0 20px 40px rgba(244, 192, 39, 0.3);
+}
+
+.pill-dark-yellow {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--primary-blue);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+
+.program-title-blue {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--primary-blue);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.program-title-blue span {
+  color: var(--secondary-blue);
+}
+
+.inner-card {
+  background-color: #fdf5df;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.inner-number {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-blue);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.inner-subtitle {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.inner-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-dark);
+}
+
+@media (max-width: 968px) {
+  .programs-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .programs-heading {
+    font-size: 2.5rem;
+  }
+  
+  .program-card {
+    padding: 2rem;
+  }
+  
+  .program-title-dark, 
+  .program-title-blue {
+    font-size: 2rem;
+  }
+}
