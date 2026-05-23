@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Download } from 'lucide-react';
+import Stats from './Stats';
 import './HeroContent.css';
 
 const HeroContent = () => {
@@ -10,9 +11,9 @@ const HeroContent = () => {
       <div className="floating-badge delay-400 fade-in-up">S</div>
       
       <h1 className="hero-heading">
-        <span className="fade-in-up delay-100">Learn.</span>
-        <span className="fade-in-up delay-200">Lead.</span>
-        <span className="fade-in-up delay-300">Transform.</span>
+        <span className="fade-in-up delay-100 text-gradient">Learn.</span>
+        <span className="fade-in-up delay-200 text-gradient">Lead.</span>
+        <span className="fade-in-up delay-300 text-gradient-gold">Transform.</span>
       </h1>
       
       <h2 className="hero-subheading fade-in-up delay-300">
@@ -30,6 +31,10 @@ const HeroContent = () => {
         <button className="btn-secondary">
           <Download size={18} /> Download Brochure
         </button>
+      </div>
+
+      <div className="hero-stats-wrapper fade-in-up delay-400">
+        <Stats />
       </div>
     </div>
   );

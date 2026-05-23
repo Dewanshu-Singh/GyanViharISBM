@@ -21,9 +21,8 @@ function App() {
     <>
       <div className="container">
         <Navbar />
-        <Hero />
       </div>
-      <Stats />
+      <Hero />
       <AboutISBM />
       <Credentials />
       <Programs />

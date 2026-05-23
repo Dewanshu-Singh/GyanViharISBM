@@ -9,18 +9,18 @@ const AlumniNetwork = () => {
   ];
 
   const recruiters = [
-    { name: "Google", color: "#4285F4" },
-    { name: "ITC", color: "#E31837" },
-    { name: "L&T", color: "#00205B" },
-    { name: "Asian Paints", color: "#C0282E" },
-    { name: "Deloitte", color: "#86BC25" },
-    { name: "HDFC Bank", color: "#004C8F" },
-    { name: "Wipro", color: "#3B185F" },
-    { name: "TCS", color: "#E31837" },
-    { name: "Infosys", color: "#007CC3" },
-    { name: "Hiremi", color: "#007CC3" },
-    { name: "IMS Group", color: "#00205B" },
-    { name: "ICICI Bank", color: "#F37021" }
+    { name: "Google", src: "/google.webp" },
+    { name: "ITC", src: "/itc.webp" },
+    { name: "L&T", src: "/l&t.webp" },
+    { name: "Asian Paints", src: "/asianpaint.webp" },
+    { name: "Deloitte", src: "/Deloitte.webp" },
+    { name: "HDFC Bank", src: "/Hdfcbank.webp" },
+    { name: "Wipro", src: "/wipro.webp" },
+    { name: "TCS", src: "/tcs.webp" },
+    { name: "Infosys", src: "/infosys.webp" },
+    { name: "Hiremi", src: "/hireme.png" },
+    { name: "IMS Group", src: "/imsgroup.webp" },
+    { name: "ICICI Bank", src: "/icicibank.webp" }
   ];
 
   return (
@@ -55,7 +55,13 @@ const AlumniNetwork = () => {
           </div>
           
           <div className="network-image-wrapper fade-in-up delay-200">
-            <img src="/image11.png" alt="SGVU Students" className="network-image" />
+            <div className="network-floating-inner">
+              <img src="/DSC00680.jpg" alt="Alumni Network" className="network-image" />
+              <div className="top-recruiters-badge">
+                <span className="badge-title">Top Recruiters</span>
+                <span className="badge-names">Google • ITC • L&T</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -68,8 +74,17 @@ const AlumniNetwork = () => {
           
           <div className="recruiters-grid">
             {recruiters.map((recruiter, index) => (
-              <div key={index} className="recruiter-cell">
-                <span style={{ color: recruiter.color, fontWeight: '700', fontSize: '1.1rem' }}>
+              <div key={index} className={`recruiter-cell fade-in-up delay-${(index % 6) * 100}`}>
+                <img 
+                  src={recruiter.src} 
+                  alt={recruiter.name} 
+                  className="recruiter-logo"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'block';
+                  }}
+                />
+                <span className="recruiter-fallback-text" style={{ display: 'none' }}>
                   {recruiter.name}
                 </span>
               </div>

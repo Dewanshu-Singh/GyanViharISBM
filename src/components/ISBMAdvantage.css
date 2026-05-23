@@ -1,6 +1,6 @@
 .advantage-section {
-  background-color: #ffffff;
-  padding: 8rem 0;
+  background-color: #f0f4f8; /* Slightly darker to contrast with bright cards */
+  padding: 4rem 0; /* Reduced from 8rem */
   font-family: var(--font-body, "Inter", sans-serif);
 }
 
@@ -12,7 +12,7 @@
 
 .advantage-header {
   text-align: left;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem; /* Reduced from 4rem */
 }
 
 .advantage-label {
@@ -42,97 +42,115 @@
   letter-spacing: -1px;
 }
 
+/* 3D Image Cards Grid */
 .advantage-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .advantage-card {
   border-radius: 24px;
-  padding: 2.5rem;
+  position: relative;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 280px;
+  justify-content: space-between;
+  min-height: 400px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(6,32,91,0.2) 0%, rgba(6,32,91,0.95) 100%);
+  z-index: 1;
+  transition: all 0.5s ease;
 }
 
 .advantage-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(6, 32, 91, 0.3);
+}
+
+.advantage-card:hover .card-overlay {
+  background: linear-gradient(to bottom, rgba(6,32,91,0.1) 0%, rgba(6,32,91,0.9) 100%);
+}
+
+.card-top, .card-content-bottom {
+  position: relative;
+  z-index: 2;
+  padding: 2.5rem;
 }
 
 .card-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 2rem;
 }
 
 .card-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #eab340;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.advantage-card:hover .card-icon {
+  background-color: #eab340;
+  color: #06205B;
+  transform: scale(1.15) rotate(5deg);
+  border-color: #eab340;
 }
 
 .card-number {
-  font-size: 1.8rem;
+  font-size: 3rem;
   font-weight: 800;
   font-family: var(--font-heading, "Inter", sans-serif);
+  color: rgba(255, 255, 255, 0.3);
+  line-height: 1;
+  transition: all 0.4s ease;
+}
+
+.advantage-card:hover .card-number {
+  color: #eab340;
+  transform: translateY(-5px);
+  text-shadow: 0 10px 20px rgba(234, 179, 64, 0.3);
 }
 
 .card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
   line-height: 1.3;
+  color: #ffffff;
   font-family: var(--font-heading, "Inter", sans-serif);
+  transition: color 0.3s ease;
 }
 
-.card-desc {
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-/* Themes */
-
-.theme-yellow {
-  background-color: #eab340; /* Golden yellow */
-  color: #06205B;
-}
-
-.theme-yellow .card-icon {
-  background-color: #06205B;
+.advantage-card:hover .card-title {
   color: #eab340;
 }
 
-.theme-yellow .card-number {
-  color: rgba(6, 32, 91, 0.2);
-}
-
-.theme-yellow .card-desc {
-  color: rgba(6, 32, 91, 0.8);
-}
-
-.theme-dark {
-  background-color: #06205B; /* Dark blue */
-  color: #ffffff;
-}
-
-.theme-dark .card-icon {
-  background-color: #eab340;
-  color: #06205B;
-}
-
-.theme-dark .card-number {
-  color: rgba(255, 255, 255, 0.15);
-}
-
-.theme-dark .card-desc {
-  color: rgba(255, 255, 255, 0.7);
+.card-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 @media (max-width: 1024px) {
@@ -142,11 +160,33 @@
 }
 
 @media (max-width: 768px) {
+  .advantage-section {
+    padding: 3rem 0;
+  }
+
   .advantage-heading {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
   }
   
   .advantage-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .advantage-heading {
+    font-size: 2.2rem;
+  }
+
+  .advantage-card {
+    min-height: 320px;
+  }
+
+  .card-top, .card-content-bottom {
+    padding: 1.5rem;
+  }
+
+  .card-number {
+    font-size: 2.5rem;
   }
 }

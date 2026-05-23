@@ -1,6 +1,9 @@
 .partners-section {
-  background-color: #06205B; /* SGVU original blue */
-  padding: 6rem 0 8rem;
+  background-color: #04153f; /* Slightly darker for better glassmorphism contrast */
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(244, 192, 39, 0.05), transparent 35%),
+    radial-gradient(circle at 85% 30%, rgba(22, 93, 214, 0.15), transparent 35%);
+  padding: 4rem 0;
   position: relative;
   overflow: hidden;
   color: var(--white);
@@ -10,13 +13,15 @@
 /* Background Glow Effect */
 .partners-glow {
   position: absolute;
-  top: -10%;
-  left: -5%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(22, 93, 214, 0.4) 0%, rgba(6, 32, 91, 0) 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(22, 93, 214, 0.08) 0%, rgba(6, 32, 91, 0) 70%);
   border-radius: 50%;
   z-index: 1;
+  pointer-events: none;
 }
 
 .partners-container {
@@ -33,26 +38,26 @@
   gap: 1rem;
   color: var(--primary-yellow);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .partners-label::before,
 .partners-label::after {
   content: '';
-  width: 40px;
+  width: 30px;
   height: 1px;
   background-color: var(--primary-yellow);
   opacity: 0.5;
 }
 
 .partners-heading {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   line-height: 1.1;
   font-family: var(--font-heading);
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
   letter-spacing: -1px;
 }
 
@@ -63,56 +68,74 @@
 .partners-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
   text-align: left;
 }
 
 .partner-card {
-  background-color: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 2.5rem;
-  transition: all 0.4s ease;
-  cursor: default;
+  border-radius: 16px;
+  padding: 1.8rem;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 1;
 }
 
 .partner-card:hover {
-  background-color: rgba(255, 255, 255, 0.06);
-  transform: translateY(-8px);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(244, 192, 39, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(244, 192, 39, 0.1);
+  z-index: 2;
 }
 
 .partner-icon-wrapper {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   color: var(--primary-yellow);
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .partner-card:hover .partner-icon-wrapper {
-  background-color: rgba(244, 192, 39, 0.1);
-  transform: scale(1.1);
+  background-color: var(--primary-yellow);
+  color: var(--primary-blue);
+  transform: scale(1.15) rotate(15deg) translateY(-3px);
+  box-shadow: 0 8px 15px rgba(244, 192, 39, 0.4);
+  border-color: transparent;
 }
 
 .partner-title {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   color: var(--white);
+  transition: all 0.3s ease;
+}
+
+.partner-card:hover .partner-title {
+  color: var(--primary-yellow);
 }
 
 .partner-desc {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  transition: all 0.3s ease;
+}
+
+.partner-card:hover .partner-desc {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 @media (max-width: 1024px) {

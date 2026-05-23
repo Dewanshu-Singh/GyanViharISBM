@@ -99,23 +99,22 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 70%;
-  background: linear-gradient(to top, rgba(11, 55, 140, 1) 0%, rgba(11, 55, 140, 0.8) 40%, rgba(11, 55, 140, 0) 100%);
+  height: 100%;
+  background: linear-gradient(to top, rgba(6, 32, 91, 0.95) 0%, rgba(6, 32, 91, 0.4) 50%, rgba(6, 32, 91, 0) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 2rem;
-  transition: height 0.5s ease;
+  padding: 2.5rem;
+  transition: all 0.5s ease;
 }
 
 .spec-card:hover .spec-overlay {
-  height: 85%;
-  background: linear-gradient(to top, rgba(11, 55, 140, 1) 0%, rgba(11, 55, 140, 0.9) 60%, rgba(11, 55, 140, 0) 100%);
+  background: linear-gradient(to top, rgba(6, 32, 91, 1) 0%, rgba(6, 32, 91, 0.8) 60%, rgba(6, 32, 91, 0.2) 100%);
 }
 
 .spec-icon {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   background-color: var(--primary-yellow);
   color: var(--primary-blue);
   border-radius: 50%;
@@ -123,25 +122,47 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  transition: transform 0.4s ease;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 5px 15px rgba(244, 192, 39, 0.4);
+  /* Continuous pulse to make it feel alive even when not hovering */
+  animation: iconPulse 3s infinite alternate;
+}
+
+@keyframes iconPulse {
+  0% { box-shadow: 0 0 0 0 rgba(244, 192, 39, 0.6); }
+  100% { box-shadow: 0 0 0 15px rgba(244, 192, 39, 0); }
 }
 
 .spec-card:hover .spec-icon {
-  transform: scale(1.1) rotate(5deg);
+  transform: translateY(-10px) scale(1.1) rotate(10deg);
+  background-color: var(--white);
 }
 
 .spec-title {
   color: var(--white);
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0;
+  transition: all 0.5s ease;
 }
 
 .spec-card-desc {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.85rem;
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+}
+
+.spec-card:hover .spec-card-desc {
+  max-height: 100px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 1rem;
 }
 
 @media (max-width: 1200px) {
@@ -151,9 +172,15 @@
 }
 
 @media (max-width: 768px) {
+  .specialisations-section {
+    padding: 3rem 0;
+  }
+
   .spec-header-container {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
   
   .spec-heading {
@@ -162,5 +189,19 @@
   
   .spec-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .spec-heading {
+    font-size: 2.2rem;
+  }
+
+  .spec-card {
+    height: 320px;
+  }
+
+  .spec-overlay {
+    padding: 1.5rem;
   }
 }

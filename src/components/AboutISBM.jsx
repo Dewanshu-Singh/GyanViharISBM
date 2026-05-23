@@ -40,34 +40,48 @@ const AboutISBM = () => {
         </div>
         
         {/* Right Column */}
-        <div className="quote-card-wrapper fade-in-up delay-200">
-          <div className="quote-icon-badge">
-            <Quote size={24} fill="currentColor" strokeWidth={0} />
+        <div className="about-visuals fade-in-up delay-200">
+          <div className="image-collage">
+            <div className="image-wrapper main-img-wrapper">
+              <img src="/DSC00643.jpg" alt="ISBM Campus Life" className="main-campus-img" />
+              <div className="img-overlay"></div>
+            </div>
+            <div className="image-wrapper secondary-img-wrapper float-slow">
+              <img src="/DSC00666.jpg" alt="Students Learning" className="secondary-campus-img" />
+            </div>
+            <div className="decorative-shape shape-1"></div>
+            <div className="decorative-shape shape-2"></div>
           </div>
           
-          <div className="quote-card">
-            <h3 className="quote-text">
-              The next generation of business leaders will not emerge from passive classrooms — but from <span className="highlight">ecosystems that fuse academic rigor with real-world corporate exposure.</span>
-            </h3>
-            
-            <div className="quote-divider"></div>
-            
-            <div className="quote-details">
-              <p className="quote-paragraph">
-                One of central India's most forward-thinking business schools — where undergraduates pursue globally integrated <strong>ACCA qualifications with 9-paper exemptions</strong>.
-              </p>
-              
-              <p className="quote-paragraph">
-                Students don't just study Harvard Business School cases — they work through them as part of their core curriculum.
-              </p>
+          <div className="quote-card-wrapper overlap-quote">
+            <div className="quote-icon-badge">
+              <Quote size={24} fill="currentColor" strokeWidth={0} />
             </div>
             
-            <div className="tags-container">
-              <span className="tag-pill">NAAC A+</span>
-              <span className="tag-pill">ACCA Partner</span>
-              <span className="tag-pill">Harvard Cases</span>
-              <span className="tag-pill">JK Shah</span>
-              <span className="tag-pill">NISM</span>
+            <div className="quote-card">
+              <h3 className="quote-text">
+                The next generation of business leaders will not emerge from passive classrooms — but from <span className="highlight">ecosystems that fuse academic rigor with real-world corporate exposure.</span>
+              </h3>
+              
+              <div className="quote-divider"></div>
+              
+              <div className="quote-details">
+                <p className="quote-paragraph">
+                  One of central India's most forward-thinking business schools — where undergraduates pursue globally integrated <strong>ACCA qualifications with 9-paper exemptions</strong>.
+                </p>
+                
+                <p className="quote-paragraph">
+                  Students don't just study Harvard Business School cases — they work through them as part of their core curriculum.
+                </p>
+              </div>
+              
+              <div className="tags-container">
+                <span className="tag-pill">NAAC A+</span>
+                <span className="tag-pill">ACCA Partner</span>
+                <span className="tag-pill">Harvard Cases</span>
+                <span className="tag-pill">JK Shah</span>
+                <span className="tag-pill">NISM</span>
+              </div>
             </div>
           </div>
         </div>

@@ -4,6 +4,8 @@
   --primary-blue: #06205B;
   --secondary-blue: #1e5dd6;
   --primary-yellow: #f4c027;
+  --accent-glow: rgba(244, 192, 39, 0.4);
+  --blue-glow: rgba(6, 32, 91, 0.15);
   --text-dark: #1f2937;
   --text-gray: #6b7280;
   --bg-light: #f9fafb;
@@ -28,6 +30,21 @@ body {
   color: var(--text-dark);
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+/* Global Aesthetics */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #d4af37, var(--primary-yellow), #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 h1, h2, h3, h4, h5, h6 {

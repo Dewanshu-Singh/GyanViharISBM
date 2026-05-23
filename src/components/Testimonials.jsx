@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, Quote } from 'lucide-react';
+import YouTube from 'react-youtube';
 import './Testimonials.css';
 
 const Testimonials = () => {
@@ -8,9 +8,7 @@ const Testimonials = () => {
       id: 1,
       name: "Aarav Mehta",
       role: "Analyst, Goldman Sachs",
-      quote: "ISBM didn't just teach me finance — it gave me a global passport with the ACCA pathway.",
-      delay: "100",
-      videoUrl: "https://www.youtube.com/embed/ym9qRVjd6t4",
+      videoId: "ym9qRVjd6t4",
       overlayText: (
         <>
           Learn beyond books.<br />
@@ -22,9 +20,7 @@ const Testimonials = () => {
       id: 2,
       name: "Priya Sharma",
       role: "Brand Manager, ITC",
-      quote: "Live corporate projects in year two opened doors I never thought possible. Confidence on day one.",
-      delay: "200",
-      videoUrl: "https://www.youtube.com/embed/AMGzpD937B8",
+      videoId: "AMGzpD937B8",
       overlayText: (
         <>
           Experience it before<br />
@@ -36,9 +32,7 @@ const Testimonials = () => {
       id: 3,
       name: "Rohan Kapoor",
       role: "Founder, Kapoor & Co.",
-      quote: "The startup incubation program gave me mentorship, infrastructure, and my first three customers.",
-      delay: "300",
-      videoUrl: "https://www.youtube.com/embed/TPIpRCsfRAo",
+      videoId: "TPIpRCsfRAo",
       overlayText: (
         <>
           Not just theory —<br />
@@ -52,7 +46,9 @@ const Testimonials = () => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [playingVideoId, setPlayingVideoId] = useState(null);
   const autoPlayRef = useRef();
+  const playerRefs = useRef({});
 
   // Detect mobile viewport
   useEffect(() => {
@@ -83,13 +79,13 @@ const Testimonials = () => {
 
   // Auto-play carousel on mobile only
   useEffect(() => {
-    if (!isMobile) return;
+    if (!isMobile || playingVideoId) return; // Pause swapping if a video is playing
     const play = () => {
       autoPlayRef.current();
     };
     const interval = setInterval(play, 4000); // Auto swipe every 4 seconds
     return () => clearInterval(interval);
-  }, [isMobile]);
+  }, [isMobile, playingVideoId]);
 
   // Touch events for manual swipe
   const minSwipeDistance = 50;
@@ -116,6 +112,41 @@ const Testimonials = () => {
     }
   };
 
+  const onPlayerReady = (event, id) => {
+    playerRefs.current[id] = event.target;
+  };
+
+  const onPlayerPlay = (id) => {
+    setPlayingVideoId(id);
+  };
+
+  const onPlayerPause = () => {
+    setPlayingVideoId(null);
+  };
+
+  const onPlayerEnd = () => {
+    setPlayingVideoId(null);
+    nextSlide(); // Swap when video ends
+  };
+
+  const handleOverlayClick = (id) => {
+    if (playerRefs.current[id]) {
+      playerRefs.current[id].playVideo();
+    }
+  };
+
+  const ytOpts = {
+    height: '100%',
+    width: '100%',
+    playerVars: {
+      autoplay: 0,
+      controls: 1,
+      rel: 0,
+      modestbranding: 1,
+      playsinline: 1,
+    },
+  };
+
   return (
     <section className="testimonials-section">
       <div className="testi-header">
@@ -124,12 +155,7 @@ const Testimonials = () => {
         <p className="testi-subheading fade-in-up delay-200">Empowering future business leaders to thrive in a global world.</p>
       </div>
 
-      <div 
-        className="testi-slider-container"
-        onTouchStart={isMobile ? onTouchStart : undefined}
-        onTouchMove={isMobile ? onTouchMove : undefined}
-        onTouchEnd={isMobile ? onTouchEnd : undefined}
-      >
+      <div className="testi-slider-container">
         <div 
           className="testi-grid"
           style={{
@@ -137,22 +163,33 @@ const Testimonials = () => {
           }}
         >
           {testimonials.map((testi) => (
-            <div key={testi.id} className={`testi-card fade-in-up delay-${testi.delay}`}>
-              <div className="video-wrapper" style={{ position: 'relative', borderRadius: '24px', overflow: 'hidden', width: '100%', height: '100%', minHeight: '550px' }}>
-                <iframe 
-                  width="100%" 
-                  height="100%" 
-                  src={testi.videoUrl} 
-                  title={`${testi.name} Testimonial`} 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowFullScreen>
-                </iframe>
-                
-                <div className="video-overlay">
-                  <div className="overlay-content">
-                    <p className="overlay-text">{testi.overlayText}</p>
-                  </div>
+            <div 
+              key={testi.id} 
+              className="testi-card-wrapper"
+              onTouchStart={isMobile ? onTouchStart : undefined}
+              onTouchMove={isMobile ? onTouchMove : undefined}
+              onTouchEnd={isMobile ? onTouchEnd : undefined}
+            >
+              <div className={`testi-card fade-in-up delay-${testi.delay || 100}`}>
+                <div className="video-wrapper" style={{ position: 'relative', overflow: 'hidden', width: '100%', height: '100%' }}>
+                  <YouTube
+                    videoId={testi.videoId}
+                    opts={ytOpts}
+                    onReady={(e) => onPlayerReady(e, testi.id)}
+                    onPlay={() => onPlayerPlay(testi.id)}
+                    onPause={onPlayerPause}
+                    onEnd={onPlayerEnd}
+                    className="youtube-container"
+                    iframeClassName="youtube-iframe"
+                  />
+                  
+                  {playingVideoId !== testi.id && (
+                    <div className="video-overlay" onClick={() => handleOverlayClick(testi.id)}>
+                      <div className="overlay-content">
+                        <p className="overlay-text">{testi.overlayText}</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
