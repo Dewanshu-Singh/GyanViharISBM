@@ -2,6 +2,18 @@ import React, { useEffect } from 'react';
 import './AdmissionForm.css';
 
 const AdmissionForm = () => {
+  useEffect(() => {
+    // Only inject if it doesn't already exist to avoid StrictMode double-loading issues
+    if (!document.getElementById("npf-widget-script")) {
+      const script = document.createElement("script");
+      script.id = "npf-widget-script";
+      script.type = "text/javascript";
+      script.async = true;
+      script.src = "https://widgets.in6.nopaperforms.com/emwgts.js";
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <div className="form-container-wrapper fade-in-up delay-200" id="admissions">
       <div className="bg-shape-yellow fade-in-up delay-400"></div>
