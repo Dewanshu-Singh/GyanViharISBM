@@ -2,21 +2,6 @@ import React, { useEffect } from 'react';
 import './AdmissionForm.css';
 
 const AdmissionForm = () => {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.async = true;
-    script.src = "https://widgets.in6.nopaperforms.com/emwgts.js";
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup script when component unmounts
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
-
   return (
     <div className="form-container-wrapper fade-in-up delay-200" id="admissions">
       <div className="bg-shape-yellow fade-in-up delay-400"></div>
