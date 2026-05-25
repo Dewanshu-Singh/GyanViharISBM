@@ -8,8 +8,6 @@ const HeroContent = () => {
     <div className="hero-content-container">
       <h3 className="school-name fade-in-up">International School of Business Management</h3>
       
-      <div className="floating-badge delay-400 fade-in-up">S</div>
-      
       <h1 className="hero-heading">
         <span className="fade-in-up delay-100 text-gradient">Learn.</span>
         <span className="fade-in-up delay-200 text-gradient">Lead.</span>

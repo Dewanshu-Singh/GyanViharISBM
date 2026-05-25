@@ -3,6 +3,8 @@
   width: 100%;
   max-width: 500px;
   margin-left: auto;
+  align-self: flex-start;
+  margin-top: 1rem;
 }
 
 /* Decorative background shapes */
@@ -32,7 +34,7 @@
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 24px;
-  padding: 2.5rem 2rem;
+  padding: 1.2rem 2rem 2rem 2rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 0 4px rgba(6, 32, 91, 0.05);
   position: relative;
   z-index: 1;
@@ -40,7 +42,7 @@
 
 .form-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .badge-yellow {

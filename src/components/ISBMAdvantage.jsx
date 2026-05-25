@@ -66,9 +66,7 @@ const ISBMAdvantage = () => {
             <div 
               key={index} 
               className={`advantage-card fade-in-up delay-${(index + 1) * 100}`}
-              style={{ backgroundImage: `url(${reason.image})` }}
             >
-              <div className="card-overlay"></div>
               <div className="card-top">
                 <div className="card-icon">
                   {reason.icon}

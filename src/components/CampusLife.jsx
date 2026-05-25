@@ -1,48 +1,34 @@
 import React, { useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import './CampusLife.css';
 
 const CampusLife = () => {
   const allImages = [
-    "/DSC00643.jpg",
-    "/DSC00648.jpg",
-    "/DSC00656.jpg",
-    "/DSC00666.jpg",
-    "/DSC00669.jpg",
-    "/DSC00680.jpg",
-    "/DSC00693.jpg",
-    "/DSC00701.jpg",
-    "/_DSC0612.jpg",
-    "/_DSC4648.jpg",
-    "/_DSC4688.jpg"
+    "/IMG_0071.JPG",
+    "/Open Air Theatre - Facilities_.jpg",
+    "/P1230527.JPG",
+    "/WhatsApp Image 2026-04-10 at 3.16.12 PM.jpeg",
+    "/DSC02917.JPG",
+    "/for poster.jpg"
   ];
 
   const [mainIndex, setMainIndex] = useState(0);
-  const [smallIndex1, setSmallIndex1] = useState(2);
-  const [smallIndex2, setSmallIndex2] = useState(4);
-  const [smallIndex3, setSmallIndex3] = useState(6);
+
+  const nextSlide = () => {
+    setMainIndex((prev) => (prev + 1) % allImages.length);
+  };
+
+  const prevSlide = () => {
+    setMainIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+  };
 
   useEffect(() => {
     const mainTimer = setInterval(() => {
       setMainIndex((prev) => (prev + 1) % allImages.length);
     }, 4000);
-    
-    const smallTimer1 = setInterval(() => {
-      setSmallIndex1((prev) => (prev + 1) % allImages.length);
-    }, 5000);
-
-    const smallTimer2 = setInterval(() => {
-      setSmallIndex2((prev) => (prev + 1) % allImages.length);
-    }, 6000);
-
-    const smallTimer3 = setInterval(() => {
-      setSmallIndex3((prev) => (prev + 1) % allImages.length);
-    }, 7000);
 
     return () => {
       clearInterval(mainTimer);
-      clearInterval(smallTimer1);
-      clearInterval(smallTimer2);
-      clearInterval(smallTimer3);
     };
   }, [allImages.length]);
 
@@ -76,6 +62,14 @@ const CampusLife = () => {
                 className={`campus-img-slide ${index === mainIndex ? 'active' : ''}`}
               />
             ))}
+            
+            <button className="slider-nav-btn prev" onClick={prevSlide}>
+              <ChevronLeft size={28} />
+            </button>
+            <button className="slider-nav-btn next" onClick={nextSlide}>
+              <ChevronRight size={28} />
+            </button>
+
             <div className="slider-indicators">
               {allImages.map((_, index) => (
                 <div 

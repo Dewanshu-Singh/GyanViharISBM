@@ -1,13 +1,31 @@
 .advantage-section {
-  background-color: #f0f4f8; /* Slightly darker to contrast with bright cards */
-  padding: 4rem 0; /* Reduced from 8rem */
+  background-color: #06205B;
+  background-image: url('/for poster.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 4rem 0;
   font-family: var(--font-body, "Inter", sans-serif);
+  position: relative;
+  overflow: hidden;
+}
+
+.advantage-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(6, 32, 91, 0.65) 0%, rgba(6, 32, 91, 0.45) 100%);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 0;
 }
 
 .advantage-container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .advantage-header {
@@ -19,7 +37,7 @@
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  color: #165dd6; /* Blue matching the text */
+  color: #f4c027;
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 2px;
@@ -30,14 +48,14 @@
 .advantage-label .line {
   width: 40px;
   height: 2px;
-  background-color: #f4c027; /* Yellow */
+  background-color: #f4c027;
 }
 
 .advantage-heading {
   font-size: 3.5rem;
   line-height: 1.1;
   font-weight: 800;
-  color: #06205B; /* Dark Blue */
+  color: #ffffff;
   font-family: var(--font-heading, "Inter", sans-serif);
   letter-spacing: -1px;
 }
@@ -55,38 +73,30 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 400px;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  min-height: 240px;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: visible;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
   transform-style: preserve-3d;
   perspective: 1000px;
 }
 
-.card-overlay {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(to bottom, rgba(6,32,91,0.2) 0%, rgba(6,32,91,0.95) 100%);
-  z-index: 1;
-  transition: all 0.5s ease;
-}
-
 .advantage-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(6, 32, 91, 0.3);
-}
-
-.advantage-card:hover .card-overlay {
-  background: linear-gradient(to bottom, rgba(6,32,91,0.1) 0%, rgba(6,32,91,0.9) 100%);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(244, 192, 39, 0.4);
+  transform: translateY(-15px) rotateX(4deg) rotateY(-4deg);
+  box-shadow: 15px 25px 50px rgba(0, 0, 0, 0.3), 0 0 20px rgba(244, 192, 39, 0.2);
 }
 
 .card-top, .card-content-bottom {
   position: relative;
   z-index: 2;
-  padding: 2.5rem;
+  padding: 1.8rem;
 }
 
 .card-top {
@@ -102,55 +112,55 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255,255,255,0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: #eab340;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f4c027;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.1);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 1px solid rgba(255,255,255,0.2);
 }
 
 .advantage-card:hover .card-icon {
   background-color: #eab340;
   color: #06205B;
-  transform: scale(1.15) rotate(5deg);
-  border-color: #eab340;
+  transform: translateZ(40px) scale(1.15) rotate(5deg);
 }
 
 .card-number {
   font-size: 3rem;
   font-weight: 800;
   font-family: var(--font-heading, "Inter", sans-serif);
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.1);
   line-height: 1;
   transition: all 0.4s ease;
 }
 
 .advantage-card:hover .card-number {
-  color: #eab340;
-  transform: translateY(-5px);
-  text-shadow: 0 10px 20px rgba(234, 179, 64, 0.3);
+  color: #f4c027;
+  transform: translateZ(30px) translateY(-5px);
+  text-shadow: 0 10px 20px rgba(244, 192, 39, 0.3);
 }
 
 .card-title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 800;
   margin-bottom: 0.75rem;
   line-height: 1.3;
   color: #ffffff;
   font-family: var(--font-heading, "Inter", sans-serif);
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  transform: translateZ(20px);
 }
 
 .advantage-card:hover .card-title {
-  color: #eab340;
+  color: #f4c027;
 }
 
 .card-desc {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.75);
+  transform: translateZ(10px);
+  transition: transform 0.3s ease;
 }
 
 @media (max-width: 1024px) {

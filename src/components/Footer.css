@@ -42,7 +42,7 @@
   height: 60px;
   object-fit: contain;
   margin-bottom: 1.5rem;
-  transform: scale(1.5);
+  transform: scale(1.8);
   transform-origin: left center;
 }
 
@@ -236,7 +236,7 @@
   }
   
   .about-col .footer-logo {
-    transform: scale(1.2);
+    transform: scale(1.4);
     transform-origin: center center;
   }
 }

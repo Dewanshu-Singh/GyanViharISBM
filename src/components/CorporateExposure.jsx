@@ -37,7 +37,7 @@ const CorporateExposure = () => {
         </div>
         
         <div className="corp-header-right fade-in-up delay-200">
-          <img src="/INTERNATIONAL SCHOOL OF BUSINESS MANAGEMENT (1) 1.png" alt="Students" className="students-cutout" />
+          <img src="/INTERNATIONAL SCHOOL OF BUSINESS MANAGEMENT (1) 1.png" alt="Students" className="students-cutout" loading="lazy" />
         </div>
       </div>
 

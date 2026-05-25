@@ -1,12 +1,22 @@
 .incubation-section {
-  background-color: #04153f; /* Slightly darker SGVU blue */
-  background-image: 
-    radial-gradient(circle at 10% 80%, rgba(244, 192, 39, 0.05), transparent 40%),
-    radial-gradient(circle at 90% 20%, rgba(244, 192, 39, 0.05), transparent 40%);
-  padding: 4rem 0; /* Compact */
+  background-color: #04153f;
+  background-image: url('/DSC02968.JPG');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 4rem 0;
   position: relative;
   color: var(--white, #ffffff);
   overflow: hidden;
+}
+
+.incubation-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(4, 21, 63, 0.75) 0%, rgba(14, 53, 137, 0.60) 100%);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 1;
 }
 
 /* Background Glowing Orbs */
@@ -142,26 +152,32 @@
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(244, 192, 39, 0.1);
 }
 
-.incubation-icon-wrapper {
-  width: 48px;
-  height: 48px;
-  background-color: var(--primary-yellow, #f4c027);
-  border-radius: 50%;
+.incubation-svg-wrapper {
+  height: 100px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 1.5rem;
-  color: #06205B;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 5px 15px rgba(244, 192, 39, 0.3);
   position: relative;
   z-index: 2;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.incubation-card:hover .incubation-icon-wrapper {
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 10px 25px rgba(244, 192, 39, 0.6);
-  background-color: #fff;
+.incubation-animated-svg {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+}
+
+.incubation-card:hover .incubation-svg-wrapper {
+  transform: translateY(-8px);
+}
+
+.incubation-card:hover .incubation-animated-svg {
+  transform: scale(1.1) rotate(3deg);
+  filter: drop-shadow(0 10px 15px rgba(244, 192, 39, 0.5));
 }
 
 .incubation-card-title {

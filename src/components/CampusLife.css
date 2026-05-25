@@ -117,6 +117,41 @@
   transform: scale(1.05);
 }
 
+.slider-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.slider-nav-btn:hover {
+  background: #eab340;
+  color: #06205B;
+  border-color: #eab340;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-nav-btn.prev {
+  left: 1.5rem;
+}
+
+.slider-nav-btn.next {
+  right: 1.5rem;
+}
+
 .slider-indicators {
   position: absolute;
   bottom: 1.5rem;

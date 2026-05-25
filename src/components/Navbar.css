@@ -24,13 +24,13 @@
   height: 45px; 
   width: auto;
   object-fit: contain;
-  transform: scale(2.4);
+  transform: scale(2.7);
   transform-origin: left center;
   transition: transform 0.3s ease;
 }
 
 .logo-image:hover {
-  transform: scale(2.5);
+  transform: scale(2.8);
 }
 
 .navbar-links {
@@ -143,6 +143,6 @@
   }
 
   .logo-image {
-    transform: scale(1.6);
+    transform: scale(1.8);
   }
 }

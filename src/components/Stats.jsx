@@ -1,10 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Users, Award, Globe } from 'lucide-react';
 import './Stats.css';
 
 const CountUp = ({ end, duration = 2000, suffix = "" }) => {
   const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const countRef = useRef(null);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (countRef.current) {
+      observer.observe(countRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
     let startTimestamp = null;
     const step = (timestamp) => {
       if (!startTimestamp) startTimestamp = timestamp;
@@ -20,18 +43,21 @@ const CountUp = ({ end, duration = 2000, suffix = "" }) => {
       }
     };
     window.requestAnimationFrame(step);
-  }, [end, duration]);
+  }, [end, duration, isVisible]);
 
   // Format with commas for large numbers
   const formattedCount = count >= 1000 ? count.toLocaleString() : count;
 
-  return <span>{formattedCount}{suffix}</span>;
+  return <span ref={countRef}>{formattedCount}{suffix}</span>;
 };
 
 const Stats = () => {
   return (
     <div className="stats-container">
       <div className="stat-item">
+        <div className="stat-icon-wrapper">
+          <Users size={32} className="stat-icon" />
+        </div>
         <div className="stat-number">
           <CountUp end={10000} suffix="+" />
         </div>
@@ -39,6 +65,9 @@ const Stats = () => {
       </div>
       
       <div className="stat-item">
+        <div className="stat-icon-wrapper">
+          <Award size={32} className="stat-icon" />
+        </div>
         <div className="stat-number">
           <CountUp end={9} />
         </div>
@@ -46,6 +75,9 @@ const Stats = () => {
       </div>
       
       <div className="stat-item">
+        <div className="stat-icon-wrapper">
+          <Globe size={32} className="stat-icon" />
+        </div>
         <div className="stat-number">
           <CountUp end={180} suffix="+" />
         </div>

@@ -43,11 +43,11 @@ const AboutISBM = () => {
         <div className="about-visuals fade-in-up delay-200">
           <div className="image-collage">
             <div className="image-wrapper main-img-wrapper">
-              <img src="/DSC00643.jpg" alt="ISBM Campus Life" className="main-campus-img" />
+              <img src="/DSC00643.jpg" alt="ISBM Campus Life" className="main-campus-img" loading="lazy" />
               <div className="img-overlay"></div>
             </div>
             <div className="image-wrapper secondary-img-wrapper float-slow">
-              <img src="/DSC00666.jpg" alt="Students Learning" className="secondary-campus-img" />
+              <img src="/DSC00666.jpg" alt="Students Learning" className="secondary-campus-img" loading="lazy" />
             </div>
             <div className="decorative-shape shape-1"></div>
             <div className="decorative-shape shape-2"></div>

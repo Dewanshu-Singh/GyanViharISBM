@@ -56,7 +56,7 @@ const AlumniNetwork = () => {
           
           <div className="network-image-wrapper fade-in-up delay-200">
             <div className="network-floating-inner">
-              <img src="/DSC00680.jpg" alt="Alumni Network" className="network-image" />
+              <img src="/DSC00680.jpg" alt="Alumni Network" className="network-image" loading="lazy" />
               <div className="top-recruiters-badge">
                 <span className="badge-title">Top Recruiters</span>
                 <span className="badge-names">Google • ITC • L&T</span>

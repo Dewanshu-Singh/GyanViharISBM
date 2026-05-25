@@ -6,25 +6,25 @@ const StartupIncubation = () => {
   const cards = [
     {
       id: 1,
-      icon: <Compass size={24} />,
+      image: "/structured_mentorship.svg",
       title: "Structured Mentorship",
       desc: "One-on-one guidance from experienced entrepreneurs and business advisors."
     },
     {
       id: 2,
-      icon: <Building2 size={24} />,
+      image: "/Incubation Infrastructure.svg",
       title: "Incubation Infrastructure",
       desc: "Workspace, resources, and institutional support to develop and test business ideas."
     },
     {
       id: 3,
-      icon: <Rocket size={24} />,
+      image: "/investor and pitch.svg",
       title: "Investor & Pitch Readiness",
       desc: "Training in business plan development, financial modelling, and pitch deck creation."
     },
     {
       id: 4,
-      icon: <Globe size={24} />,
+      image: "/Market access.svg",
       title: "Market Access",
       desc: "Connections to SGVU's 10,000+ alumni network for early customers and co-founders."
     }
@@ -32,6 +32,7 @@ const StartupIncubation = () => {
 
   return (
     <section className="incubation-section">
+      <div className="incubation-overlay"></div>
       <div className="incubation-container">
         
         <div className="incubation-left fade-in-up">
@@ -61,8 +62,8 @@ const StartupIncubation = () => {
                 key={card.id} 
                 className={`incubation-card fade-in-up delay-${(index + 1) * 100}`}
               >
-                <div className="incubation-icon-wrapper">
-                  {card.icon}
+                <div className="incubation-svg-wrapper">
+                  <img src={card.image} alt={card.title} className="incubation-animated-svg" />
                 </div>
                 <h4 className="incubation-card-title">{card.title}</h4>
                 <p className="incubation-card-desc">{card.desc}</p>
