@@ -1,6 +1,6 @@
 .footer-section {
-  background-color: #f9fafb; /* Very light grey */
-  padding: 6rem 0 2rem;
+  background-color: #f9fafb;
+  padding: 3rem 0 1rem;
   font-family: var(--font-body, "Inter", sans-serif);
 }
 
@@ -13,8 +13,8 @@
 .footer-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1.2fr 1.2fr;
-  gap: 3rem;
-  margin-bottom: 4rem;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .footer-heading {
@@ -39,10 +39,10 @@
 
 /* Column 1: About */
 .about-col .footer-logo {
-  height: 60px;
+  height: 50px;
   object-fit: contain;
-  margin-bottom: 1.5rem;
-  transform: scale(1.8);
+  margin-bottom: 1rem;
+  transform: scale(1.4);
   transform-origin: left center;
 }
 
@@ -50,7 +50,7 @@
   color: #6b7280;
   font-size: 0.9rem;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .social-links {
@@ -134,7 +134,7 @@
 .admissions-help-card {
   background-color: #165dd6; /* Blue background */
   border-radius: 20px;
-  padding: 2.5rem 2rem;
+  padding: 1.8rem 1.5rem;
   color: #ffffff;
   box-shadow: 0 15px 35px rgba(22, 93, 214, 0.2);
   transition: transform 0.3s ease;
@@ -201,7 +201,7 @@
 /* Footer Bottom */
 .footer-bottom {
   border-top: 1px solid #e5e7eb;
-  padding-top: 2rem;
+  padding-top: 1rem;
   text-align: center;
 }
 
@@ -210,22 +210,21 @@
   font-size: 0.85rem;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 4rem 2rem;
+    gap: 2.5rem 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
   .footer-section {
-    padding: 4rem 0 2rem;
+    padding: 3rem 0 1rem;
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
   
   .about-col {

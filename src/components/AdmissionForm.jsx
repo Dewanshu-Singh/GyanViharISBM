@@ -41,7 +41,7 @@ const AdmissionForm = () => {
           <h3 className="form-title">APPLY FOR SGVUEE 2026</h3>
         </div>
         
-        <div className="npf_wgts" data-height="400px" data-w="c2ccf50794637e9f986080d417cdaac8"></div>
+        <div className="npf_wgts" data-height="550px" data-w="c2ccf50794637e9f986080d417cdaac8"></div>
       </div>
     </div>
   );

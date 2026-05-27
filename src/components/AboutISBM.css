@@ -386,8 +386,22 @@
   }
 
   .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .stat-val {
+    font-size: 1.6rem;
+  }
+
+  .stat-desc {
+    font-size: 0.65rem;
+    margin-top: 0.15rem;
   }
 
   .quote-text {

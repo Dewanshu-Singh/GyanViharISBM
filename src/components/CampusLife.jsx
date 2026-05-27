@@ -4,12 +4,14 @@ import './CampusLife.css';
 
 const CampusLife = () => {
   const allImages = [
+    "/new2.jpg",
+    "/new3.jpg",
+    "/new4.jpg",
+    "/new5.jpg",
     "/IMG_0071.JPG",
     "/Open Air Theatre - Facilities_.jpg",
     "/P1230527.JPG",
-    "/WhatsApp Image 2026-04-10 at 3.16.12 PM.jpeg",
-    "/DSC02917.JPG",
-    "/for poster.jpg"
+    "/DSC02917.JPG"
   ];
 
   const [mainIndex, setMainIndex] = useState(0);

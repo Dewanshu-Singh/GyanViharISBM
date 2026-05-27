@@ -6,12 +6,12 @@ import './HeroContent.css';
 const HeroContent = () => {
   return (
     <div className="hero-content-container">
-      <h3 className="school-name fade-in-up">International School of Business Management</h3>
+      <h3 className="school-name fade-in-up">Learn. Lead. Transform.</h3>
       
       <h1 className="hero-heading">
-        <span className="fade-in-up delay-100 text-gradient">Learn.</span>
-        <span className="fade-in-up delay-200 text-gradient">Lead.</span>
-        <span className="fade-in-up delay-300 text-gradient-gold">Transform.</span>
+        <span className="fade-in-up delay-100 text-gradient">INTERNATIONAL</span>
+        <span className="fade-in-up delay-200 text-gradient">SCHOOL OF</span>
+        <span className="fade-in-up delay-300 text-gradient-gold">BUSINESS MANAGEMENT</span>
       </h1>
       
       <h2 className="hero-subheading fade-in-up delay-300">
@@ -26,9 +26,9 @@ const HeroContent = () => {
         <a href="#admissions" className="btn-primary" style={{ textDecoration: 'none' }}>
           Apply Now <ArrowRight size={18} />
         </a>
-        <button className="btn-secondary">
+        <a href="/4 Pager - ISBM.pdf" download className="btn-secondary" style={{ textDecoration: 'none' }}>
           <Download size={18} /> Download Brochure
-        </button>
+        </a>
       </div>
 
       <div className="hero-stats-wrapper fade-in-up delay-400">

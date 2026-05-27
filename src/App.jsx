@@ -5,6 +5,7 @@ import Stats from './components/Stats';
 import AboutISBM from './components/AboutISBM';
 import Credentials from './components/Credentials';
 import Programs from './components/Programs';
+import CampusGallery from './components/CampusGallery';
 import Specialisations from './components/Specialisations';
 import GlobalPartners from './components/GlobalPartners';
 import Testimonials from './components/Testimonials';
@@ -26,6 +27,7 @@ function App() {
       <AboutISBM />
       <Credentials />
       <Programs />
+      <CampusGallery />
       <Specialisations />
       <GlobalPartners />
       <Testimonials />

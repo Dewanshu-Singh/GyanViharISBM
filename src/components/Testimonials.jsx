@@ -184,7 +184,20 @@ const Testimonials = () => {
                   />
                   
                   {playingVideoId !== testi.id && (
-                    <div className="video-overlay" onClick={() => handleOverlayClick(testi.id)}>
+                    <div 
+                      className="video-overlay" 
+                      onClick={() => handleOverlayClick(testi.id)}
+                      style={{
+                        backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.4) 100%), url(https://i.ytimg.com/vi/${testi.videoId}/hqdefault.jpg)`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                      }}
+                    >
+                      <div className="native-play-icon">
+                        <svg viewBox="0 0 24 24" fill="white" width="64" height="64" style={{ filter: 'drop-shadow(0px 0px 10px rgba(0,0,0,0.5))' }}>
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
                       <div className="overlay-content">
                         <p className="overlay-text">{testi.overlayText}</p>
                       </div>

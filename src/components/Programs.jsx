@@ -32,11 +32,13 @@ const Programs = () => {
             <h3 className="program-title-dark">BBA + CA</h3>
             <p className="program-subtitle">via JK Shah Classes</p>
             
-            <ul className="program-features">
-              <li className="feature-item">Integrated Chartered Accountancy pathway</li>
-              <li className="feature-item">Finance and consulting readiness</li>
-              <li className="feature-item">Premium placement preparation</li>
-            </ul>
+            <div className="inner-card">
+              <ul className="program-features">
+                <li className="feature-item">Integrated Chartered Accountancy pathway</li>
+                <li className="feature-item">Finance and consulting readiness</li>
+                <li className="feature-item">Premium placement preparation</li>
+              </ul>
+            </div>
           </div>
           
           {/* Card 2: B.Com with ACCA */}

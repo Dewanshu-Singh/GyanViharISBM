@@ -7,7 +7,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  background-image: url('/DSC00656.jpg');
+  background-image: url('/DSC00669.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -42,8 +42,9 @@
 
 @media (max-width: 968px) {
   .hero-section {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    padding: 2rem 2rem 4rem;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    padding: 2.5rem 1.5rem 3rem;
   }
 }

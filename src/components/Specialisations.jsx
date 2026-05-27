@@ -58,7 +58,6 @@ const Specialisations = () => {
       <div className="spec-grid">
         {tracks.map((track) => (
           <div key={track.id} className={`spec-card fade-in-up delay-${track.delay}`}>
-            <img src={track.bgImage} alt={track.title} className="spec-bg" />
             
             <div className="spec-overlay">
               <div className="spec-icon">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Briefcase, Trophy, Mic } from 'lucide-react';
 import './CorporateExposure.css';
 
 const CorporateExposure = () => {
@@ -7,21 +8,21 @@ const CorporateExposure = () => {
       id: 1,
       title: "Live Corporate Projects",
       desc: "Students work on live assignments sourced from corporate partners — actual business problems in marketing, operations, finance, and strategy.",
-      bgImage: "/corporate_projects_bg.png",
+      icon: <Briefcase size={24} />,
       delay: "100"
     },
     {
       id: 2,
       title: "Case Competitions & Workshops",
       desc: "Inter-college and national-level business case competitions, strategy workshops, and analytics hackathons.",
-      bgImage: "/case_competitions_bg.png",
+      icon: <Trophy size={24} />,
       delay: "200"
     },
     {
       id: 3,
       title: "Industry Immersion & Guest Lectures",
       desc: "CEOs, CFOs, founders, and sector heads regularly deliver masterclasses — students hear directly from the people running industries.",
-      bgImage: "/industry_immersion_bg.png",
+      icon: <Mic size={24} />,
       delay: "300"
     }
   ];
@@ -44,10 +45,10 @@ const CorporateExposure = () => {
       <div className="corp-grid">
         {cards.map((card) => (
           <div key={card.id} className={`corp-card fade-in-up delay-${card.delay}`}>
-            <img src={card.bgImage} alt={card.title} className="corp-bg" />
-            
             <div className="corp-overlay">
-              <div className="yellow-line"></div>
+              <div className="corp-icon-wrapper">
+                {card.icon}
+              </div>
               <h3 className="corp-title">{card.title}</h3>
               <p className="corp-card-desc">{card.desc}</p>
             </div>
